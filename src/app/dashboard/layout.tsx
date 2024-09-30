@@ -4,7 +4,7 @@ export const Layout = ({ children }: {children: React.ReactNode}) => {
     return (
       <div className="flex h-screen">
         <SideNav />
-        <main className="flex-grow p-6">{children}</main>
+        <main className="flex-grow ">{children}</main>
       </div>
     );
   };
