@@ -1,5 +1,3 @@
-'use client'
-
 import LoginForm from "@/app/(auth)/components/login-form";
 import { AuthProvider } from "@/context/AuthContext";
 
@@ -9,9 +7,7 @@ export const description =
 
 export const Page = () => {
   return (
-    <AuthProvider>
       <LoginForm />
-    </AuthProvider>
   )
 };
 

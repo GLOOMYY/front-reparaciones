@@ -1,4 +1,3 @@
-
 import { fetchServices } from "@/lib/data"
 import {
   ChevronLeft,
@@ -132,15 +131,15 @@ export const ServicesTable = async () => {
                         <TableCell>
                           <div className="font-medium">{service.client.name}</div>
                           <div className="hidden text-sm text-muted-foreground md:inline">
-                            {service.client.email}
+                            {service.client}
                           </div>
                         </TableCell>
                         <TableCell className="hidden sm:table-cell">
-                          {service.service_type.name}
+                          {service.service_type}
                         </TableCell>
                         <TableCell className="hidden sm:table-cell">
                           <Badge className="text-xs" variant="secondary">
-                            {service.status.name}
+                            {service.status}
                           </Badge>
                         </TableCell>
                         <TableCell className="hidden md:table-cell">

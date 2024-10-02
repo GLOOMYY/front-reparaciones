@@ -1,5 +1,6 @@
 'use client'
 
+import api from "@/lib/api"
 import { useRouter } from 'next/navigation';
 import { useContext, useState } from 'react';
 import { AuthContext } from '@/context/AuthContext';
@@ -16,7 +17,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 
 export const LoginForm = () => {
-    const { login } = useContext(AuthContext);
+    // const { login } = useContext(AuthContext);
     const [email, setEmail] = useState(''); // Cambia a email en lugar de username
     const [password, setPassword] = useState('');
     const router = useRouter(); // Inicializa el router de Next.js
@@ -24,12 +25,13 @@ export const LoginForm = () => {
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
-            const data = await login(email, password); // Intenta hacer login
-            console.log('Login exitoso', data);
+            const response = await api.post('/api/v1/users/token/', { email, password });
+            localStorage.setItem('token', response.data.access)
+            alert('Todo bien mi papa')
             router.push('/dashboard'); // Redirigir solo si el login es exitoso
         } catch (error) {
-            console.error('Error durante el login: ' + error.message); // Mostrar mensaje de error
-            alert('Error durante el login: ' + error.message); // Alerta de error
+            alert('Email o Contraseña incorrectos')
+            console.error('Error during login', error)
         }
     };
     
