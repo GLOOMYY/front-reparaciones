@@ -26,7 +26,8 @@ export const LoginForm = () => {
         e.preventDefault();
         try {
             const response = await api.post('/api/v1/users/token/', { email, password });
-            localStorage.setItem('token', response.data.access)
+            localStorage.setItem('token', response.data.access);
+            localStorage.setItem('refresh_token', response.data.refresh);
             alert('Todo bien mi papa')
             router.push('/dashboard'); // Redirigir solo si el login es exitoso
         } catch (error) {

@@ -3,6 +3,8 @@
 import { useState, useEffect } from 'react'
 import { fetchServices } from "@/lib/data"
 import { Service } from "@/types/services"
+import { isoToDate } from '@/lib/utils'
+
 import {
   ChevronLeft,
   ChevronRight,
@@ -157,7 +159,7 @@ export const ServicesTable = () => {
                           </Badge>
                         </TableCell>
                         <TableCell className="hidden md:table-cell">
-                          {service.created_at}
+                          {isoToDate(service.created_at)}
                         </TableCell>
                         <TableCell className="text-right">
                           ${service.cost}

@@ -1,16 +1,5 @@
 import * as React from "react"
-import Header from "@/app/dashboard/components/header";
-import Link from "next/link"
 
-
-import {
-  Breadcrumb,
-  BreadcrumbItem,
-  BreadcrumbLink,
-  BreadcrumbList,
-  BreadcrumbPage,
-  BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb"
 import { Button } from "@/components/ui/button"
 import {
   Card,
@@ -20,18 +9,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import {
-  DropdownMenu,
-  DropdownMenuCheckboxItem,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
-import { Input } from "@/components/ui/input"
 import { Progress } from "@/components/ui/progress"
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import ServicesTable from "@/app/dashboard/components/servicesTable"
 
 export const description =
@@ -40,9 +18,6 @@ export const description =
 export const OtherDashboard = async () => {
 
   return (
-    <div className="flex min-h-screen w-full flex-col bg-muted/40">
-      <div className="flex flex-col sm:gap-4 sm:py-4 sm:pl-14">
-        <Header />
         <main className="grid flex-1 items-start gap-4 p-4 sm:px-6 sm:py-0 md:gap-8">
           <div className="grid auto-rows-max items-start gap-4 md:gap-8 lg:col-span-2">
             <div className="grid gap-4 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4">
@@ -50,14 +25,14 @@ export const OtherDashboard = async () => {
                 className="sm:col-span-2" x-chunk="dashboard-05-chunk-0"
               >
                 <CardHeader className="pb-3">
-                  <CardTitle>Your Orders</CardTitle>
+                  <CardTitle>Your Services</CardTitle>
                   <CardDescription className="text-balance max-w-lg leading-relaxed">
                     Introducing Our Dynamic Orders Dashboard for Seamless
                     Management and Insightful Analysis.
                   </CardDescription>
                 </CardHeader>
                 <CardFooter>
-                  <Button>Create New Order</Button>
+                  <Button>Create New Service</Button>
                 </CardFooter>
               </Card>
               <Card x-chunk="dashboard-05-chunk-1">
@@ -93,8 +68,6 @@ export const OtherDashboard = async () => {
 
           </div>
         </main>
-      </div>
-    </div>
   )
 }
 
