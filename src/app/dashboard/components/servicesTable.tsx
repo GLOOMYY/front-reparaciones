@@ -1,4 +1,8 @@
+'use client'
+ 
+import { useState, useEffect } from 'react'
 import { fetchServices } from "@/lib/data"
+import { Service } from "@/types/services"
 import {
   ChevronLeft,
   ChevronRight,
@@ -53,8 +57,18 @@ import {
   TabsTrigger,
 } from "@/components/ui/tabs"
 
-export const ServicesTable = async () => {
-  const services = await fetchServices()
+export const ServicesTable = () => {
+  const [services, setServices] = useState(null);
+
+  useEffect(() => {
+    async function fetchServs() {
+      const data = await fetchServices(); // Realiza el fetch de los servicios con el token
+      setServices(data);
+    }
+
+    fetchServs(); // Llama a la función al montar el componente
+  }, []);
+
     return (
         <Tabs defaultValue="week">
         <div className="flex items-center">
@@ -126,20 +140,20 @@ export const ServicesTable = async () => {
                 </TableHeader>
                 <TableBody>
                   {
-                    services?.map((service) => (
+                    services?.map((service: Service) => (
                       <TableRow key={service.id} className="bg-accent">
                         <TableCell>
                           <div className="font-medium">{service.client.name}</div>
                           <div className="hidden text-sm text-muted-foreground md:inline">
-                            {service.client}
+                            {service.client.email}
                           </div>
                         </TableCell>
                         <TableCell className="hidden sm:table-cell">
-                          {service.service_type}
+                          {service.service_type.name}
                         </TableCell>
                         <TableCell className="hidden sm:table-cell">
                           <Badge className="text-xs" variant="secondary">
-                            {service.status}
+                            {service.status.name}
                           </Badge>
                         </TableCell>
                         <TableCell className="hidden md:table-cell">
