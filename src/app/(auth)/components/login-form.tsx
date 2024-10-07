@@ -3,7 +3,7 @@
 import api from "@/lib/api"
 import { useRouter } from 'next/navigation';
 import { useContext, useState } from 'react';
-import { AuthContext } from '@/context/AuthContext';
+import { AuthContext } from '../../../../por borrar/AuthContext';
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import {

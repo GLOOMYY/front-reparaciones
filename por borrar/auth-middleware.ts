@@ -1,6 +1,6 @@
 // src/middleware/auth-middleware.js
 
-import { refreshToken } from '../services/auth';
+import { refreshToken } from '../src/services/auth';
 
 // Middleware para agregar el token a todas las solicitudes
 export const authFetch = async (url, options = {}) => {

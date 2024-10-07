@@ -1,5 +1,5 @@
 // src/services/api.js
-import { authFetch } from '../middleware/auth-middleware';
+import { authFetch } from '../../por borrar/auth-middleware';
 
 export const fetchProtectedData = async () => {
   const res = await authFetch('http://localhost:8000/api/protected/');

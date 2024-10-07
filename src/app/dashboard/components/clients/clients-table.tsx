@@ -59,7 +59,7 @@ export const ClientsTable = ({
 
   useEffect(() => {
     loadClients();
-  });
+  }, [query, currentPage]);
 
   return (
     <Card className="xl:col-span-2">

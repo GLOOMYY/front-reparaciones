@@ -1,5 +1,5 @@
 import LoginForm from "@/app/(auth)/components/login-form";
-import { AuthProvider } from "@/context/AuthContext";
+import { AuthProvider } from "../../../../por borrar/AuthContext";
 
 
 export const description =

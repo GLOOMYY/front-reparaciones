@@ -58,8 +58,9 @@ export const Detail = ({ client }: { client: Client }) => {
   }
 
   useEffect(() => {
-    loadServices()
-  })
+    loadServices();
+  }, [client]); 
+  
 
     return(
             <Card
