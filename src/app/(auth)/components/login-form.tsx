@@ -25,7 +25,7 @@ export const LoginForm = () => {
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
-            const response = await api.post('/api/v1/users/token/', { email, password });
+            const response = await api.post('/users/token/', { email, password });
             localStorage.setItem('token', response.data.access);
             localStorage.setItem('refresh_token', response.data.refresh);
             alert('Todo bien mi papa')

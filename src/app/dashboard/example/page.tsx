@@ -1,6 +1,6 @@
-import Charts from "@/app/dashboard/components/charts";
+import Charts from "@/app/dashboard/components/analytics/charts";
 import Dashboard from "@/app/dashboard/components/dashboard";
-import OtherDashboard from "@/app/dashboard/components/otherDarshboard";
+import OtherDashboard from "@/app/dashboard/components/other-darshboard";
 
 export const Page = () => (
     <div>

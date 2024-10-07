@@ -4,6 +4,8 @@ import { useState, useEffect } from 'react'
 import { fetchServices } from "@/lib/data"
 import { Service } from "@/types/services"
 import { isoToDate } from '@/lib/utils'
+import { PaginationDemo } from "@/app/dashboard/components/pagination"
+
 
 import {
   ChevronLeft,
@@ -59,26 +61,33 @@ import {
   TabsTrigger,
 } from "@/components/ui/tabs"
 
-export const ServicesTable = () => {
+const itemsPage = 10;
+
+export const ServicesTable = ({
+  query,
+  currentPage,
+}: {
+  query: string;
+  currentPage: number;
+}) => {
   const [services, setServices] = useState(null);
+  const [totalPages, setTotalPages] = useState(null)
+
+  const loadServices = async () => {
+    const data = await fetchServices(query, currentPage);
+    const total = Math.ceil(data.count / itemsPage)
+    const services = data.results
+    setTotalPages(total)
+    setServices(services)      
+  }
 
   useEffect(() => {
-    async function fetchServs() {
-      const data = await fetchServices(); // Realiza el fetch de los servicios con el token
-      setServices(data);
-    }
-
-    fetchServs(); // Llama a la función al montar el componente
-  }, []);
+    loadServices();
+  });
 
     return (
         <Tabs defaultValue="week">
         <div className="flex items-center">
-          <TabsList>
-            <TabsTrigger value="week">Week</TabsTrigger>
-            <TabsTrigger value="month">Month</TabsTrigger>
-            <TabsTrigger value="year">Year</TabsTrigger>
-          </TabsList>
           <div className="ml-auto flex items-center gap-2">
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
@@ -168,8 +177,12 @@ export const ServicesTable = () => {
                     ))
                   }
                 </TableBody>
+                
               </Table>
             </CardContent>
+            <CardFooter>
+              <PaginationDemo totalPages={totalPages}/>
+            </CardFooter>
           </Card>
         </TabsContent>
       </Tabs>

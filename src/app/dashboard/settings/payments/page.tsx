@@ -1,9 +1,9 @@
-import Settings from "@/app/dashboard/components/settings"
+import { ExampleTable } from "@/app/dashboard/components/example-table"
 
 export const Page = () => {
     return (
         <div>
-            <Settings />
+            Hola Payments
         </div>
     )
 };
