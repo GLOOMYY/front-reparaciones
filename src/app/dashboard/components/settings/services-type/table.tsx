@@ -4,7 +4,8 @@ import { useState, useEffect } from 'react'
 import { fetchServiceType } from "@/lib/data"
 import { ServiceType } from "@/types/services"
 import { PaginationDemo } from "@/app/dashboard/components/pagination"
-import { ServiceTypeForm } from "@/app/dashboard/components/settings/services-type/create"
+import { ServiceTypeForm } from "@/app/dashboard/components/settings/services-type/form"
+// import { ServiceTypeForm } from "@/app/dashboard/components/settings/services-type/create"
 import { ServiceTypeEdit } from "@/app/dashboard/components/settings/services-type/edit"
 import { ServiceTypeDelete } from "@/app/dashboard/components/settings/services-type/delete"
 
@@ -120,11 +121,11 @@ export const ServicesTypeTable = ({
                 </div>
               </Button>
               <ServiceTypeForm
-                isOpen={isOpenCreate}
-                onClose={() => {
-                  closeModalCreate();
-                  window.location.reload();
-                }}
+              isOpen={isOpenCreate}
+              onClose={() => {
+                closeModalCreate();
+                window.location.reload();
+              }}
               />
             </CardHeader>
             <CardContent>
@@ -154,9 +155,6 @@ export const ServicesTypeTable = ({
                             >
                                 <Pencil className="h-4 w-4" />
                             </Button>
-                            {/* <Button size="sm" variant="outline" className="h-8 gap-1">
-                            <Trash2 className="h-4 w-4" />
-                            </Button> */}
                             <ServiceTypeDelete id={serviceType.id} />
                         </div>
                       </TableCell>
@@ -172,7 +170,7 @@ export const ServicesTypeTable = ({
   
           {/* Modal de edición */}
           {serviceTypeToEdit && (
-            <ServiceTypeEdit
+            <ServiceTypeForm
               serviceType={serviceTypeToEdit}
               isOpen={!!serviceTypeToEdit}
               onClose={() => {
