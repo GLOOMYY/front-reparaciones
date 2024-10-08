@@ -6,7 +6,6 @@ import type { Client } from "@/types/clients"
 import type { Data } from "@/types/data"
 import { ClientForm } from "@/app/dashboard/components/clients/client-form"
 import { PaginationDemo } from "@/app/dashboard/components/pagination"
-import { CreateClient, RetrieveClient, UpdateClient, DeleteClient } from "@/app/dashboard/components/clients/buttons"
 
 import Link from "next/link"
 import {

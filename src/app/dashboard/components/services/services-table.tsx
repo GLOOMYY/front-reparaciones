@@ -83,7 +83,7 @@ export const ServicesTable = ({
 
   useEffect(() => {
     loadServices();
-  });
+  }, []);
 
     return (
         <Tabs defaultValue="week">

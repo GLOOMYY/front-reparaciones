@@ -1,5 +1,7 @@
 'use client'
 
+import { DeleteServiceTypeWithId } from "@/lib/actions"
+
 import { useState, useEffect } from "react"
 import {
   Pencil,
@@ -9,7 +11,6 @@ import {
   UserRoundPlus,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { deleteClientWithId } from "@/lib/actions"
 import {
   Card,
   CardContent,
@@ -19,17 +20,7 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 
-
-
-export const UpdateClient = ({id}: {id: string}) => {
-    return (
-        <Button size="sm" variant="outline" className="h-8 gap-1" >
-            <Pencil className="h-4 w-4" />
-        </Button>
-)}
-
-
-export const DeleteClient = ({ id }: { id: string }) => {
+export const ServiceTypeDelete = ({ id }: { id: string|number }) => {
     const [loading, setLoading] = useState(false)
     const [deleted, setDeleted] = useState(false)
   
@@ -37,11 +28,11 @@ export const DeleteClient = ({ id }: { id: string }) => {
       event.preventDefault()
       setLoading(true)
       try {
-        await deleteClientWithId(id)
-        console.log("Cliente eliminado con éxito")
+        await DeleteServiceTypeWithId(id)
+        console.log("Tipo de servicio eliminado con éxito")
         setDeleted(true) // Marca que se ha eliminado
       } catch (error) {
-        console.error("Error al eliminar el cliente", error)
+        console.error("Error al eliminar el Tipo de servicio", error)
       } finally {
         setLoading(false)
       }
@@ -50,7 +41,7 @@ export const DeleteClient = ({ id }: { id: string }) => {
     // Redirige después de que se haya eliminado el cliente
     useEffect(() => {
       if (deleted) {
-        window.location.href = "/dashboard/clients" // Redirección
+        window.location.reload();
       }
     }, [deleted])
   
