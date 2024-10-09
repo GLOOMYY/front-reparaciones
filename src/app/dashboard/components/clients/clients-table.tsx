@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react'
 import { fetchClients } from "@/lib/data"
 import type { Client } from "@/types/clients"
 import type { Data } from "@/types/data"
-import { ClientForm } from "@/app/dashboard/components/clients/client-form"
+// import { ClientForm } from "@/app/dashboard/components/clients/client-form"
 import { PaginationDemo } from "@/app/dashboard/components/pagination"
 
 import Link from "next/link"
@@ -30,6 +30,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
+import { ClientForm } from "@/app/dashboard/components/clients/form"
 
 const itemsPage = 10;
 
@@ -77,7 +78,7 @@ export const ClientsTable = ({
           isOpen={isOpen}
           onClose={() => {
             closeModal();
-            loadClients();
+            window.location.reload()
           }}
         />
       </CardHeader>

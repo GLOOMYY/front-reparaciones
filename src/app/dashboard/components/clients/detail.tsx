@@ -5,7 +5,8 @@ import type { Service } from '@/types/services'
 import type { Data } from "@/types/data"
 import { fetchServicesByClient } from "@/lib/data"
 import { UpdateClient, DeleteClient } from "@/app/dashboard/components/clients/buttons"
-import { ClientEdit } from "@/app/dashboard/components/clients/client-edit"
+import { ClientEdit } from "../../../../../por borrar/client-edit"
+import { ClientForm } from "@/app/dashboard/components/clients/form"
 import { isoToDate } from '@/lib/utils'
 import {
   ChevronLeft,
@@ -85,10 +86,11 @@ export const Detail = ({ client }: { client: Client }) => {
                   <Button size="sm" variant="outline" className="h-8 gap-1" onClick={openModal} >
                     <Pencil className="h-4 w-4" />
                   </Button>
-                  <ClientEdit
+                  <ClientForm
                     isOpen={isOpen}
                     onClose={() => {
                       closeModal();
+                      window.location.reload()
                     }}
                     client={client}
                   />

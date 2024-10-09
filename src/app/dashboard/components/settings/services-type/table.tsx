@@ -5,8 +5,6 @@ import { fetchServiceType } from "@/lib/data"
 import { ServiceType } from "@/types/services"
 import { PaginationDemo } from "@/app/dashboard/components/pagination"
 import { ServiceTypeForm } from "@/app/dashboard/components/settings/services-type/form"
-// import { ServiceTypeForm } from "@/app/dashboard/components/settings/services-type/create"
-import { ServiceTypeEdit } from "@/app/dashboard/components/settings/services-type/edit"
 import { ServiceTypeDelete } from "@/app/dashboard/components/settings/services-type/delete"
 
 import {

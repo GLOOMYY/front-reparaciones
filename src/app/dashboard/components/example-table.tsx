@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { ClientForm } from "@/app/dashboard/components/clients/client-form"
+import { ClientForm } from "../../../../por borrar/client-form"
 import { PaginationDemo } from "@/app/dashboard/components/pagination"
 
 import Link from "next/link"
